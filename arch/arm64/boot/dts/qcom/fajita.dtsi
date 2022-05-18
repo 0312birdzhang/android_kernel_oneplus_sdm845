@@ -16,6 +16,7 @@
 #include "dsi-panel-samsung_sefeg01_s_cmd.dtsi"
 #include "dsi-panel-samsung_s6e3fc2x01.dtsi"
 #include "dsi-panel-samsung_dsc.dtsi"
+#include "sdm845-comma-common.dtsi"
 
 
 /{

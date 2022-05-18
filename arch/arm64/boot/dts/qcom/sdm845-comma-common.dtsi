@@ -1,0 +1,54 @@
+/*
+ * Copyright (C) 2018, Comma.ai, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&adsp_mem {
+	size = <0 0x10000000>;
+};
+
+&mdss_dsi0 {
+	/delete-property/ qcom,platform-bklight-en-gpio;
+};
+
+&mdss_dsi1 {
+	status = "disabled";
+};
+
+&mdss_fb1 {
+	status = "disabled";
+};
+
+&mdss_fb2 {
+	status = "disabled";
+};
+
+&mdss_fb3 {
+	status = "disabled";
+};
+
+
+&pcie1 {
+	status = "disabled";
+};
+
+&pcie2 {
+	status = "disabled";
+};
+
+
+&usb3 {
+	/delete-property/ vbus_dwc3-supply;
+};
+
+&usb_otg_switch {
+	status = "disabled";
+};
