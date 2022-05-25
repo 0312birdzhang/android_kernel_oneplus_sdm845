@@ -52,3 +52,64 @@
 &usb_otg_switch {
 	status = "disabled";
 };
+
+&spmi_bus {
+	/delete-property/ qcom,enable-ahb-bus-workaround;
+};
+
+&apps_smmu {
+	/delete-property/ qcom,no-asid-retention;
+};
+
+&smb1355_charger {
+	qcom,charging-timeout-mins = <0>;
+	qcom,precharging-timeout-mins = <0>;
+};
+
+&soc {
+	/delete-node/ gen-vkeys;
+
+	gpio_keys {
+		/delete-node/ cam_focus;
+		/delete-node/ cam_snapshot;
+	};
+
+	qcom,cnss {
+		/delete-property/ qcom,wlan-ramdump-dynamic;
+	};
+
+	sound-9335 {
+		/delete-property/ qcom,hph-en0-gpio;
+		/delete-property/ qcom,hph-en1-gpio;
+		/delete-property/ qcom,us-euro-gpios;
+		/delete-property/ qcom,wsa-aux-dev-prefix;
+		/delete-property/ qcom,wsa-devs;
+		/delete-property/ qcom,wsa-max-devs;
+	};
+};
+
+&sde_dp {
+	status = "disabled";
+	qcom,dp-usbpd-detection = <&pmi8998_pdphy>;
+	qcom,ext-disp = <&ext_disp>;
+
+	pinctrl-names = "mdss_dp_active", "mdss_dp_sleep";
+	pinctrl-0 = <&sde_dp_aux_active &sde_dp_usbplug_cc_active>;
+	pinctrl-1 = <&sde_dp_aux_suspend &sde_dp_usbplug_cc_suspend>;
+	qcom,aux-en-gpio = <&tlmm 43 0>;
+	qcom,aux-sel-gpio = <&tlmm 51 0>;
+	qcom,usbplug-cc-gpio = <&tlmm 38 0>;
+};
+
+&mdss_dsi0 {
+   qcom,dsi-pref-prim-pan = <&dsi_ss_fhd_ea8074_cmd>;
+
+   status = "ok";
+};
+
+&mdss_mdp {
+  //connectors = <&sde_rscc &sde_wb &sde_dp>;
+  connectors = <&sde_rscc &sde_wb>;
+  // crashes without sde_wb
+  //connectors = <&sde_rscc>;
+};
