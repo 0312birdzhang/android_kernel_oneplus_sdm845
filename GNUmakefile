@@ -8,7 +8,7 @@ endif
 
 default: all
 
-GCC_VERSION ?= 8.1.0
+GCC_VERSION ?= 4.9.4
 TOOLCHAIN_HOST ?= https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin
 HOST_ARCH := $(shell uname -m)
 define toolchain
