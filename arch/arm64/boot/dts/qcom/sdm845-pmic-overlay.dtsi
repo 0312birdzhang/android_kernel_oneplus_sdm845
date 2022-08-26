@@ -44,4 +44,5 @@
 
 &usb0 {
 	extcon = <&pmi8998_pdphy>, <&pmi8998_pdphy>, <&eud>;
+	qcom,no-vbus-vote-with-type-C;
 };
